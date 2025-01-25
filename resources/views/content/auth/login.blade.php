@@ -17,11 +17,7 @@
                             <h1>Login</h1>
                             <p class="text-muted">Sign In to your account</p>
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                      <i class="cil-user"></i>
-                                    </span>
-                                </div>
+                               
                                 <input type="email" class="form-control @error('email') is-invalid @enderror"
                                        name="email" value="{{ old('email') }}"
                                        placeholder="Email">
@@ -30,11 +26,7 @@
                                 @enderror
                             </div>
                             <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                      <i class="cil-lock-locked"></i>
-                                    </span>
-                                </div>
+                                
                                 <input type="password"
                                        class="form-control @error('password') is-invalid @enderror"
                                        placeholder="Password" name="password">

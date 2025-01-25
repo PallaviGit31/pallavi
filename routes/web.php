@@ -17,7 +17,7 @@ use App\Http\Controllers\DashboardController;
 */
 Route::match(['get', 'post'], 'dashboard', [DashboardController::class, 'index'])->name('dashboard');   
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::match(['get', 'post'], 'login', [LoginController::class, 'login'])->name('login');
 
@@ -26,7 +26,7 @@ Route::match(['get', 'post'], 'register', [RegisterController::class, 'register'
 Route::match(['get', 'post'], 'create', [RegisterController::class, 'create'])->name('create');
 
 Route::match(['get', 'post'], 'country/{country}/states', [CountryController::class, 'getStates']);
-Route::match(['get', 'post'], 'country/{country}/cities', [CountryController::class, 'getCities']);
+Route::match(['get', 'post'], 'country/{state}/cities', [CountryController::class, 'getCities']);
 
 Route::get('/', function () {
     return view('welcome');

@@ -63,7 +63,7 @@
 </div>
 </div>
 
-
+<a href="{{ route('logout') }}" class="text-center">Logout</a>
 
 </body>
 </html>

@@ -13,7 +13,7 @@ class LoginController extends BaseController
 {
     public function login(Request $request)
     {
-        if (Auth::check()) { echo "hi"; 
+        if (Auth::check()) { 
             return redirect()->route('dashboard');
         }
         if ($request->_token) {
@@ -26,7 +26,7 @@ class LoginController extends BaseController
 
             // Check if the user is an admin
             if (Auth::attempt($credentials)) {
-                $request->session()->regenerate(); echo "hii"; die();
+                $request->session()->regenerate(); 
                 return redirect()->route('dashboard');
             }
 
