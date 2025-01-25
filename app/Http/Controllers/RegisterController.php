@@ -71,16 +71,18 @@ class RegisterController extends BaseController
      */
     public function create(Request $request)
     {
-        return User::create([
+        $data =  User::create([
             'name' => $request->name,
             'email' => $request->email,
             'dob' => $request->dob,
             'gender' => $request->gender,
-            'country' => $request->country,
-            'state' => $request->state,
-            //'city' => $data['city'],
+            'country_id' => $request->country,
+            'state_id' => $request->state,
+            'city_id' => $request->city,
             'password' => Hash::make($request->password),
         ]);
+
+        return view('content.auth.login');
     }
 
 

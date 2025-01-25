@@ -49,8 +49,8 @@
                             <input type="date" name="dob" class="form-control"  placeholder="Confirm password">
                         </div>
                         <div class="input-group mb-4">
-                            <input type="radio" name="gender"   >Male
-                            <input type="radio" name="gender"  >Female
+                            <input type="radio" name="gender" value="Male"  >Male
+                            <input type="radio" name="gender" value="Female"  >Female
                         </div>
                         <div class="input-group mb-4">
                             <select name="country" id="country" class="form-control"  >

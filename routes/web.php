@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +15,8 @@ use App\Http\Controllers\CountryController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', 'DashboardController@index')->name('dashboard');
-    
+Route::match(['get', 'post'], 'dashboard', [DashboardController::class, 'index'])->name('dashboard');   
+
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::match(['get', 'post'], 'login', [LoginController::class, 'login'])->name('login');

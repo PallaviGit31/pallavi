@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -23,9 +24,9 @@ class User extends Authenticatable
         'password',
         'dob',
         'gender',
-        'country',
-        'state',
-       // 'city',
+        'country_id',
+        'state_id',
+        'city_id',
 
     ];
 
@@ -47,4 +48,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function city()
+    {
+        return $this->belongsTo('App\Models\City');
+    }
+    public function state()
+    {
+        return $this->belongsTo('App\Models\State');
+    }
+    public function country()
+    {
+        return $this->hasOne(Country::class);
+    }
 }

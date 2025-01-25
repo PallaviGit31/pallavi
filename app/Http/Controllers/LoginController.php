@@ -13,7 +13,7 @@ class LoginController extends BaseController
 {
     public function login(Request $request)
     {
-        if (Auth::check()) {
+        if (Auth::check()) { echo "hi"; 
             return redirect()->route('dashboard');
         }
         if ($request->_token) {
@@ -25,15 +25,15 @@ class LoginController extends BaseController
             $credentials = $request->only('email', 'password');
 
             // Check if the user is an admin
-            if (Auth::guard('admin')->attempt($credentials)) {
-
-                return redirect()->route('admin.dashboard');
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate(); echo "hii"; die();
+                return redirect()->route('dashboard');
             }
 
             return back()->withErrors([
                 'email' => 'The provided credentials do not match our records.',
             ]);
-            //return redirect('/');
+            return view('content.auth.login');
         }
         return view('content.auth.login');
     }
@@ -44,6 +44,6 @@ class LoginController extends BaseController
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('admin.login')->with('message', 'You have been logged out successfully.');
+        return redirect()->route('login')->with('message', 'You have been logged out successfully.');
     }
 }
